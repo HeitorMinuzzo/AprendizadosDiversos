@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta
+     charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+<div class="section">
+  <div class="container">
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                <label for="reg-log"></label>
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
+              <div class="card-front">
+                <div class="center-wrap">
+                  <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Recuperar</h4>
+                    <div class="form-group mt-2">
+                        <input type="password" class="form-style" placeholder="Digite a nova senha" id="senha">
+                        <i class="input-icon uil uil-lock-alt"></i>
+                    </div>	
+                    <div class="form-group mt-2">
+                      <input type="password" class="form-style" placeholder="Digite novamente" id="senha2">
+                      <i class="input-icon uil uil-lock-alt"></i>
+                    </div>
+                    <a href="" onclick="recuperar()" class="btn mt-4">Recuperar</a>
+                      </div>
+                      <br>
+                      <a href="index.html">Voltar pra o Login</a>
+                    </div>
+                  </div>
+            
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function recuperar(){
+    var senha = document.getElementById('senha').value;
+    var senha2 = document.getElementById('senha2').value;
+    if(senha == senha2){
+      alert("Recuperado com sucesso ");
+    }
+    else{
+      alert("Verifique se você colocou a senha igualmente nos 2 campos");
+    }
+
+    }
+</script>
+</html>

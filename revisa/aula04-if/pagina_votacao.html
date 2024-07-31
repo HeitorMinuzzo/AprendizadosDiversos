@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" name="" id="idade">
+    <input type="button" value="Verifica" onclick="votar()">
+
+    <script>
+        function votar(){
+            var idade = document.getElementById('idade').value;
+            //facultativo1
+            if(idade>=16 && idade<=17){
+                alert('Facultativo');
+            }
+            //obrigatório
+            if(idade>=18 && idade<=60){
+                alert('Obrigatório');
+            }
+            //facultativo2
+            if(idade>60){
+                alert('Facultativo');
+            }
+        }
+    </script>
+</body>
+</html>

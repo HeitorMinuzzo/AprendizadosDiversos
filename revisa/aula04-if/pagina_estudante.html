@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Estudante</legend>
+        Presença:<br>
+        <input type="text" name="" id="presenca" placeholder="Digite o presença"><br>
+        Pontuação:<br>
+        <input type="text" name="" id="pontuacao" size="3"><br><br>
+        <input type="button" value="Verifica" onclick="aluno()">
+    </fieldset>
+    <script>
+        function aluno(){
+            var presenca = document.getElementById('presenca').value;
+            var pontuacao = document.getElementById('pontuacao').value;
+            
+            //Reprovado
+            if(presenca<75){
+                alert('Reprovado');
+            }
+            //Recuperação
+            if(presenca>=75 && pontuacao>20 && pontuacao<60){
+                alert('Recuperação');
+            }
+            //Aprovado
+            if(presenca>=75 && pontuacao>=60){
+                alert('Aprovado');
+            }
+
+        }
+    </script>
+</body>
+</html>

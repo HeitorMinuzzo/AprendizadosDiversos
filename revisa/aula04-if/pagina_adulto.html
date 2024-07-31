@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Adulto</legend>
+        Nascimento:<br>
+        <input type="date" name="" id="data" placeholder="Digite o nascimento"><br>
+       
+        <input type="button" value="Verifica" onclick="adulto()">
+    </fieldset>
+    <script>
+        function adulto(){
+            var ano = new Date(document.getElementById('data').value);
+            console.log(ano.getFullYear());
+            var idade = 2024 - ano.getFullYear();
+            //Criança menos de 12
+            if(idade<12)
+                alert('Criança');
+            //Adolescente 12 anos até 17
+            if(idade>=12 && idade<=17)
+                alert('Adolescente');
+            //Adulto 18 ou mais e menos de 60
+            if(idade>=18 && idade<60)
+                alert('Adulto');
+            //Idoso 60 anos ou mais
+            if(idade>=60)
+                alert('Idoso');
+
+        }
+    </script>
+</body>
+</html>

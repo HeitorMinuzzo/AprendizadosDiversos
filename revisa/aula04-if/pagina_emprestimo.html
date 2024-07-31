@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Crédito</legend>
+        Salário:<br>
+        <input type="text" name="" id="salario" placeholder="Digite o salário"><br>
+        Idade:<br>
+        <input type="text" name="" id="idade" size="3"><br><br>
+        <input type="button" value="Verifica" onclick="credito()">
+    </fieldset>
+    <script>
+        function credito(){
+            var idade = document.getElementById('idade').value;
+            var salario = document.getElementById('salario').value;
+            
+            //3000
+            if(salario<5000 && idade<25){
+                alert('3000');
+            }
+            //10000
+            if(salario>=5000 && idade>=25){
+                alert('10000');
+            }
+
+        }
+    </script>
+</body>
+</html>

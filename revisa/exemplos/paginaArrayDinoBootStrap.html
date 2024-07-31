@@ -1,0 +1,153 @@
+<html>
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+	</head>
+	<body>
+	
+	
+	
+	<div class="container">
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Código</label>
+			<input type="text" class="form-control" id="id" readonly>
+		</div>
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Nome</label>
+			<input type="text" class="form-control" id="nome">
+		</div>
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Tipo</label>
+			<select id="tipo" class="form-control">
+				<option value="carnívoro">carnívoro</option>
+				<option value="herbívoro">herbívoro</option>
+				<option value="omnívoro">omnívoro</option>
+			</select>
+		</div>
+		
+		<div class="mb-3">
+			<label for="exampleFormControlInput1" class="form-label">Altura</label>
+			<input type="text" id="altura" class="form-control">
+		</div>
+		<div class="mb-3">
+			<input type="button" value="Adicionar" class="btn btn-primary" onclick="adicionar()">
+			<input type="button" value="Atualizar" class="btn btn-warning" onclick="atualizar()">
+			<input type="button" value="Apagar" class="btn btn-danger" onclick="deletar()">
+			<input type="button" value="Mostrar Todos" class="btn btn-success" onclick="mostrar()">
+		</div>
+
+	</div>
+		
+		<hr>	
+		
+		<p id="dados"></p>
+		
+		
+		
+		<script>
+			var dinos = [];				//vamos ter um array, isto é, um conjunto
+			var dino = new Object();	//vamos ter um objeto	
+			dino.nome = "Tiranossauro Rex";	//estamos criando o nome
+			dino.tipo = "carnívoro";		//estamos criando o tipo
+			dino.altura = 4.00;				//estamos criando a altura	
+			dinos.push(dino);				//estamos colocando no array
+			
+			dino = new Object();	//vamos ter um objeto	
+			dino.nome = "Braquiossauro";	//estamos criando o nome
+			dino.tipo = "herbívoro";		//estamos criando o tipo
+			dino.altura = 6.00;				//estamos criando a altura	
+			dinos.push(dino);				//estamos colocando no array
+			
+			dino = new Object();	//vamos ter um objeto	
+			dino.nome = "Estegossauro";	//estamos criando o nome
+			dino.tipo = "herbívoro";		//estamos criando o tipo
+			dino.altura = 1.00;				//estamos criando a altura	
+			dinos.push(dino);				//estamos colocando no array
+			
+			//console.log(dinos);
+			console.table(dinos);			//estamos mostrando no console
+			
+			function mostrar(){
+				//for(var i=dinos.length-1;i>=0;i--){ //vamos do ultimo para o primeiro
+				document.getElementById("dados").innerHTML = "";
+				for(var i=0;i<dinos.length;i++){ //vamos do primeiro ao ultimo
+					document.getElementById("dados").innerHTML += "<input type='text' id='"+i+"' value='"+i+"' size='2' readonly onclick='preenche("+i+")'><br>";
+					document.getElementById("dados").innerHTML += dinos[i].nome+"<br>";
+					document.getElementById("dados").innerHTML += dinos[i].tipo+"<br>";
+					document.getElementById("dados").innerHTML += dinos[i].altura+"<hr>";
+				}	
+			}
+			
+			function adicionar(){
+				var nomeDigitado,tipoDigitado,alturaDigitada;
+				nomeDigitado = document.getElementById("nome").value;
+				tipoDigitado = document.getElementById("tipo").value;
+				alturaDigitada = document.getElementById("altura").value;
+				
+				var dino = new Object();	//vamos ter um objeto	
+				dino.nome = nomeDigitado;	//estamos criando o nome
+				dino.tipo = tipoDigitado;		//estamos criando o tipo
+				dino.altura = alturaDigitada;	//estamos criando a altura	
+				dinos.push(dino);				//estamos colocando no array	
+				mostrar();
+			}
+			
+			function preenche(idSelecionado){
+				console.log(idSelecionado);
+				var dino = dinos[idSelecionado];
+				document.getElementById("id").value=idSelecionado;
+				document.getElementById("nome").value=dino.nome;
+				document.getElementById("tipo").value=dino.tipo;
+				document.getElementById("altura").value=dino.altura;
+			}
+			
+			function atualizar(){
+				var id,nomeDigitado,tipoDigitado,alturaDigitada;
+				id = document.getElementById("id").value;
+				nomeDigitado = document.getElementById("nome").value;
+				tipoDigitado = document.getElementById("tipo").value;
+				alturaDigitada = document.getElementById("altura").value;
+				
+				var dino = new Object();	//vamos ter um objeto	
+				dino.nome = nomeDigitado;	//estamos criando o nome
+				dino.tipo = tipoDigitado;		//estamos criando o tipo
+				dino.altura = alturaDigitada;	//estamos criando a altura	
+				dinos[id]=dino;					//estamos atualizando no array	
+				mostrar();
+			}
+			
+			function deletar(){
+				if(confirm('Tem certeza que deseja Apagar?')){
+					var id;
+					id = document.getElementById("id").value;
+					dinos.splice(id, 1);
+					mostrar();
+					document.getElementById("id").value="";
+					document.getElementById("nome").value="";
+					document.getElementById("tipo").value="";
+					document.getElementById("altura").value="";
+				}
+			}
+			
+			
+
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

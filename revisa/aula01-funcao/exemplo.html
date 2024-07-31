@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>teste</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<form name="frmFormulario" method="post" action="exemplo.html">
+			<tr>
+			<td>Nome<br><input type="text" id="txtNome" size="50" maxlength="50"></td>
+			</tr>
+			<tr>
+			<td><input type="button" name="Confirmar" value="Confirmar" onClick="mostra()"></td>
+			</tr>
+			</form>
+		</tr>
+	</table>
+	<p id="dados"></p>
+</body>
+<script>
+	function mostra(){
+		console.log("oi");
+		//document.write(document.getElementById('txtNome').value);
+		document.getElementById('dados').innerHTML=document.getElementById('txtNome').value;
+
+	}
+</script>
+</html>

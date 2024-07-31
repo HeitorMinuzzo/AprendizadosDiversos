@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Votar:</legend>
+            <div>Salario:</div><div> <input type="text" name="" id="salario" placeholder="Digite o salario"></div>
+            <div>Idade:</div><div> <input type="text" name="" id="idade" placeholder="Digite a idade"></div>
+
+            <div><input type="button" value="Verifica" onclick="votar()">
+    </fieldset>  
+    <p id="status">
+    </p>
+
+    <script>
+        function votar(){
+            var idade = document.getElementById('idade').value;
+    if(idade<16){
+        alert("Não Vota");
+    }
+    else if(idade >=16 && idade<=17){
+        alert("Facultativo");
+    } 
+    else if(idade>=18 && idade<=60){
+        alert("Obrigatorio");
+        }
+    else if(idade>60){
+        alert("Facultativo");
+        }
+    }    
+    </script>
+    
+</body>
+</html>

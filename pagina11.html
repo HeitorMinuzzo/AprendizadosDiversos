@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Atletas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/781b92b6d9.js" crossorigin="anonymous"></script>
+    <style>
+        td {
+        height: 50px;
+        vertical-align: bottom;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Esporte</th>
+                        <th>Altura</th>
+                        <th>Operações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="" class="form-control" id="nome"></td>
+                        <td><input type="text" name="" class="form-control" id="esporte"></td>
+                        <td><input type="text" name="" class="form-control" id="altura" size="4"></td>
+                        <td>
+                            <input type="button" class="btn btn-primary" value="Adicionar" id="btnAdicionar" onclick="adicionar()">
+                            <input type="button" class="btn btn-dark" value="Confirmar" id="btnConfirmar" onclick="confirmar()" style="visibility:hidden">                
+                            <input type="button" class="btn btn-info" value="Listar" onclick="listar()">   
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div id="local"></div>
+
+        <input type="button" class="btn btn-info" value="Cadastrar 2" onclick="cadastrarDois()">
+        <input type="button" class="btn btn-success" value="Cadastrar 5" onclick="cadastrarCinco()">                
+
+        <button class="btn btn-danger" onclick="apagarTodos()"><i class='fa-solid fa-trash' style="font-size:24px;color: #ffffff; "></i> Apagar Todos </button>
+    </div>
+    <script>
+        var atletas = [];
+        var idClicado;
+        var atleta= new Object();
+        atleta.nome = "Atletaa";
+        atleta.esporte = "essporr";
+        atleta.altura = "3m";
+        atletas.push(atleta);
+
+        atleta = new Object();
+        atleta.nome = "sadsd";
+        atleta.esporte = "sdsdsa";
+        atleta.altura = "1m";
+        atletas.push(atleta);
+        listar();
+
+
+        function adicionar(){
+            var atleta = {
+                nome: document.getElementById('nome').value,
+                esporte: document.getElementById('esporte').value,
+                altura: document.getElementById('altura').value
+            };
+            atletas.push(atleta);
+            listar();
+        }
+
+        function listar(){
+            var dados = document.getElementById('local').innerHTML="";
+            var conteudo = "<table class='table table-hover'>";
+                conteudo += "<thead>";
+                conteudo += "<tr>";
+                conteudo += "<th>Nome</th>";
+                conteudo += "<th>Esporte</th>";
+                conteudo += "<th>Altura</th>";
+                conteudo += "<th>Operações</th>";
+                conteudo += "</tr>";
+                conteudo += "</thead>";
+                conteudo += "<tbody>";
+            for (let index = 0; index < atletas.length; index++) {
+                const element = atletas[index];
+                conteudo+="<tr>";
+                conteudo+="<td>"+element.nome+"</td>";
+                conteudo+="<td>"+element.esporte+"</td>";
+                conteudo+="<td>"+element.altura+"</td>";
+                conteudo+='<td valign="center">';
+                conteudo+='&nbsp;&nbsp;&nbsp;<i onclick="apagar('+index+')" style="font-size:32px;color: #e1230e; cursor:pointer" class="fa-solid fa-trash" ></i>';
+                conteudo+='&nbsp;&nbsp;&nbsp;<i onclick="editar('+index+')" style="font-size:32px;color: #c0bb30; cursor:pointer" class="fa-regular fa-pen-to-square" ></i>';
+                conteudo+="</td></tr>";
+            }
+            conteudo += "</tbody>";
+            conteudo += "</table>";
+            document.getElementById('local').innerHTML=conteudo;
+        }
+        function apagar(id){
+            if(confirm("Tem certeza?"))
+                atletas.splice(id,1);
+            listar();    
+        }
+
+        function editar(id){
+            var atleta = atletas[id];
+            document.getElementById('nome').value = atleta.nome; 
+            document.getElementById('esporte').value = atleta.esporte; 
+            document.getElementById('altura').value = atleta.altura;
+            document.getElementById('btnAdicionar').disabled=true;
+            document.getElementById('btnConfirmar').style.visibility="visible";
+            document.getElementById('btnConfirmar').setAttribute("onclick", "confirmar("+id+")");
+        }
+
+        function confirmar(id){
+            var atleta = {
+                nome: document.getElementById('nome').value,
+                esporte: document.getElementById('esporte').value,
+                altura: document.getElementById('altura').value
+            };
+            atletas[id] = atleta;
+            listar();
+            document.getElementById('nome').value = ""; 
+            document.getElementById('esporte').value = ""; 
+            document.getElementById('altura').value = "";
+            document.getElementById('btnAdicionar').disabled=false;
+            document.getElementById('btnConfirmar').style.visibility="hidden";
+            document.getElementById('btnConfirmar').removeAttribute("onclick");
+        }
+
+        function cadastrarDois(){
+            for (let i = 0; i < 2; i++) {
+                var atleta = {
+                    nome: "Atleta " + (atletas.length + 1),
+                    esporte: "Esporte " + (atletas.length + 1),
+                    altura: "1.80m"
+                };
+                atletas.push(atleta);
+            }
+            listar();
+        }
+
+        function cadastrarCinco(){
+            for (let i = 0; i < 5; i++) {
+                var atleta = {
+                    nome: "Atleta " + (atletas.length + 1),
+                    esporte: "Esporte " + (atletas.length + 1),
+                    altura: "1.80m"
+                };
+                atletas.push(atleta);
+            }
+            listar();
+        }
+
+        function apagarTodos(){
+            if(confirm("Tem certeza que deseja apagar todos os atletas?"))
+                atletas = [];
+            listar();
+        }
+    </script>
+</body>
+</html>

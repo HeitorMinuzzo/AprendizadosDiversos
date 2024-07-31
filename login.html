@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <fieldset>
+        <legend>Login:</legend>
+            <div>Usuario:</div><div> <input type="text" name="" id="usuario" placeholder="Digite o usuario"></div>
+            <div>Senha:</div><div> <input type="text" id="senha" placeholder="Digite a senha"></div>
+
+            <div><input type="button" value="Enviar" onclick="login()">
+    </fieldset>  
+    <p id="status">
+    </p>
+    <h3><p id="resultado"></p></h3>
+
+    <script>
+        function login(){
+            var usuario = document.getElementById('usuario').value
+            var senha = document.getElementById('senha').value;
+            if(usuario === "admin" && senha.length>10){
+                alert("Bem-Vindo");
+            }
+            else{
+                alert("Usuario ou Senha Inválidos");
+            }
+
+    }    
+    </script>
+    
+</body>
+</html> 

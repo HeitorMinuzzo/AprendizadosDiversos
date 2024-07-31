@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Marcelo Josué Telles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-links a {
+            margin-right: 10px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Professor Marcelo Josué Telles</h1>
+    </header>
+
+    <div class="container">
+        <img src="livro.png" alt="Livro" width="100" height="100">
+        <p><a href="https://amzn.to/35VIp8l">Adquira meu livro na Amazon!</a></p>
+
+        <img src="youtube.png" alt="Canal no Youtube" width="100" height="100">
+        <p><a href="https://www.youtube.com/c/marcelojtelles">Inscreva-se no meu canal do Youtube!</a></p>
+
+        <img src="java_curso.png" alt="Curso Java" width="100" height="100">
+        <p><a href="https://www.udemy.com/course/java-fundamentos-e-praticas/?referralCode=FB18C92B767E1B567D62">Aprenda Java na Udemy!</a></p>
+
+        <h2>Redes Sociais:</h2>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/marcelojtelles"><img src="linkedin.png" alt="LinkedIn" width="50" height="50"></a>
+            <a href="https://www.instagram.com/marcelojtelles/"><img src="instagram.png" alt="Instagram" width="50" height="50"></a>
+        </div>
+
+        <h2>Outros Canais:</h2>
+        <div class="social-links">
+            <a href="https://www.superprof.com.br/ir/7620189-9b040e"><img src="superprof.png" alt="Super Prof" width="50" height="50"></a>
+            <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7098667513055461376"><img src="newsletter_linkedin.png" alt="Newsletter LinkedIn" width="50" height="50"></a>
+            <a href="https://t.me/+1Ru6FPiUixI5Y2Ux"><img src="telegram.png" alt="Telegram" width="50" height="50"></a>
+        </div>
+
+        <h2>Preencha seu e-mail abaixo para receber nossas promoções e novidades:</h2>
+        <input type="email" id="email" name="email" placeholder="Seu e-mail">
+        <button onclick="sendEmail()">Inscrever-se</button>
+
+        <script>
+            function sendEmail() {
+                var email = document.getElementById("email").value;
+                // Aqui você pode implementar o envio de e-mail com o endereço inserido
+                alert("E-mail cadastrado com sucesso: " + email);
+            }
+        </script>
+    </div>
+</body>
+</html>

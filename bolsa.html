@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Presença:</legend>
+            <div>Nome:</div><div> <input type="text" name="" id="nome" placeholder="Digite o Nome" size="50"></div>
+            <div>Presença:</div><div> <input type="number" id="presenca" placeholder="" min="1" max="100"></div>
+
+            <div><input type="button" value="Enviar" onclick="votar()">
+    </fieldset>  
+    <p id="status">
+    </p>
+
+    <script>
+        function votar(){
+            var nome = document.getElementById('nome').value
+            var presenca = document.getElementById('presenca').value;
+            if(presenca >=95){
+                alert("O estudante "+nome+" PODE receber a bolsa");
+            }
+            else{
+                alert("O estudante "+nome+" NÃO pode receber a bolsa")
+            }
+
+    }    
+    </script>
+    
+</body>
+</html> 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <fieldset>
+        <legend>Atleta:</legend>
+            <div>Nome:</div><div> <input type="text" name="" id="nome" placeholder="Digite o Nome" size="50"></div>
+            <div>Peso:</div><div> <input type="number" id="peso" placeholder="" min="1" max="300"></div>
+
+            <div><input type="button" value="Enviar" onclick="atleta()">
+    </fieldset>  
+    <p id="status">
+    </p>
+    <h3><p id="resultado"></p></h3>
+
+    <script>
+        function atleta(){
+            var nome = document.getElementById('nome').value
+            var peso = document.getElementById('peso').value;
+            if(peso <=55){
+                alert("O atleta "+nome+" disputará na categoria NOVATO");
+                document.getElementById("resultado").innerHTML = "O atleta "+nome+" disputará na categoria NOVATO";
+            }
+            else if(peso > 55 && peso <=80){
+                alert("O atleta "+nome+" disputará na categoria SEMI-PROFISSIONAL");
+                document.getElementById("resultado").innerHTML = "O atleta "+nome+" disputará na categoria SEMI-PROFISSIONAL";
+            }
+            else if(peso > 80){
+                alert("O atleta "+nome+" disputará na categoria PROFISSIONAL");
+                document.getElementById("resultado").innerHTML = "O atleta "+nome+" disputará na categoria PROFISSIONAL";
+            }
+
+    }    
+    </script>
+    
+</body>
+</html> 
